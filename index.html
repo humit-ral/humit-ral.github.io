@@ -35,12 +35,13 @@
         <span style="font-variant: small-caps;">HuMiT</span> is a low-latency whole-body teleoperation system that drives a humanoid from sparse human keypoints alone, letting robots perform reactive and coordinated whole-body skills (ball catching, loco-manipulation) under 20ms end-to-end latency.
     </p>
 
-    <!-- Quick Links: keep only an anonymized PDF if you choose to host one. -->
+    <!-- Quick Links: keep only anonymized links. -->
     <div class="quick-links">
-      <!-- <a href="./paper.pdf" target="_blank">[pdf]</a> -->
+      <a href="./humit.pdf" target="_blank">[pdf]</a>
+      <a href="https://github.com/humit-ral/HuMiT" target="_blank">[code]</a>
     </div>
 
-    <div class="tagline" id="abstract">Abstract.</div>
+    <div class="tagline" id="abstract">Abstract</div>
 
     <div class="section">
         Real-time whole-body humanoid teleoperation remains challenging due to the computational latency introduced by optimization-based retargeting pipelines and future-frame anticipation. Existing motion tracking policies typically require dense reference targets including full joint positions, body-part transformations, and even future frames, which tightly couples the controller to expensive upstream modules.
@@ -49,7 +50,7 @@
         We validate the system on a Unitree G1 humanoid, showcasing split-second reactive responses such as catching a tossed ball, as well as coordinated loco-manipulation capabilities.
     </div>
 
-    <div class="tagline" id="method">Method.</div>
+    <div class="tagline" id="method">Method</div>
 
     <div class="section">
         The central design choice of HuMiT is that <em>&pi;</em> observes only the <b>minimal reference target (MRT)</b> &mdash;root height, root linear and angular velocity, and body-part keypoint positions at the current frame in the robot frame&mdash;without joint-level references, body-part orientations, or any future-frame information. This reduces the upstream pipeline to two lightweight components: 
@@ -64,7 +65,7 @@
         <b>System overview.</b> Retargeting and future-frame buffering are removed from the online loop; the Actor tracks the minimal reference, while the Critic uses the full retargeted reference for supervision during training.
     </p>
 
-    <div class="tagline" id="latency">Latency Measurement.</div>
+    <div class="tagline" id="latency">Latency Measurement</div>
 
     <div class="section">
         To measure end-to-end latency, we record the operator and robot side by side at 50&nbsp;fps during a repetitive waving motion and match peaks of their dense optical-flow signals.
@@ -77,7 +78,7 @@
         Side-by-side recording of the operator and the Unitree G1 used for the latency analysis.
     </p>
 
-    <div class="tagline" id="tracking">Teleoperation Tracking.</div>
+    <div class="tagline" id="tracking">Teleoperation Tracking</div>
 
     <div class="section">
         Beyond raw latency, the policy must faithfully reproduce the operator's intent in real time. We qualitatively evaluate whole-body tracking by streaming live human motion to the Unitree G1 and observing how closely the robot mirrors arm gestures, locomotion, and coupled upper&ndash;lower-body coordination.
@@ -88,7 +89,7 @@
         Real-time teleoperation tracking on the Unitree G1: the robot follows the operator's whole-body motion driven by the minimal reference target alone.
     </p>
 
-    <div class="tagline" id="reactive">Reactive Response.</div>
+    <div class="tagline" id="reactive">Reactive Response</div>
 
     <div class="section">
         Low end-to-end latency unlocks tasks that demand split-second reactions. We toss a ball toward the operator: the operator reaches out instinctively, and the robot mirrors the motion in real time, catching the ball with its glove. Even moderate teleoperation delays would make this task infeasible.
@@ -106,7 +107,7 @@
         </figure>
     </div>
 
-    <div class="tagline" id="whole-body">Coordinated Whole-Body Skills.</div>
+    <div class="tagline" id="whole-body">Coordinated Whole-Body Skills</div>
 
     <div class="section">
         Driven by a single unified policy, the operator commands the Unitree G1 through a range of everyday whole-body skills: carrying a water jug, pushing a chair, walking up to and sitting on a chair, and reaching overhead to hang clothes. These behaviors require tight coordination between locomotion and manipulation, which decoupled upper&ndash;lower-body controllers struggle to achieve.
@@ -131,7 +132,7 @@
         </figure>
     </div>
 
-    <div class="tagline" id="failure">Failure Cases.</div>
+    <div class="tagline" id="failure">Failure Cases</div>
 
     <div class="section">
         While HuMiT supports a wide range of whole-body skills, certain behaviors remain challenging. We highlight two representative failure modes below.
